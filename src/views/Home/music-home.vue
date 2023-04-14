@@ -34,36 +34,41 @@ const dynamicMask = computed(() => {
     let result
     switch (currentSlideIndex.value) {
         case 0:
-            result = "http://p1.music.126.net/NmwcKGRfpHhsb5MNRgsL7A==/109951168540550064.jpg?imageView&blur=40x20"
-            break;
+            result =
+                'http://p1.music.126.net/NmwcKGRfpHhsb5MNRgsL7A==/109951168540550064.jpg?imageView&blur=40x20'
+            break
         case 1:
-            result = "http://p1.music.126.net/hRCZFrT6h2nlw5UHYh0W-g==/109951168540705984.jpg?imageView&blur=40x20"
-            break;
+            result =
+                'http://p1.music.126.net/hRCZFrT6h2nlw5UHYh0W-g==/109951168540705984.jpg?imageView&blur=40x20'
+            break
         case 2:
-            result = "http://p1.music.126.net/SWAGIM0GecRl6sahhdRPxA==/109951168540605488.jpg?imageView&blur=40x20"
+            result =
+                'http://p1.music.126.net/SWAGIM0GecRl6sahhdRPxA==/109951168540605488.jpg?imageView&blur=40x20'
             break
         case 3:
-            result = "http://p1.music.126.net/ZwJsbKGM4-3wPXcVHLRtSg==/109951168540587598.jpg?imageView&blur=40x20"
-            break;
+            result =
+                'http://p1.music.126.net/ZwJsbKGM4-3wPXcVHLRtSg==/109951168540587598.jpg?imageView&blur=40x20'
+            break
         case 4:
-            result = "http://p1.music.126.net/6_ZJVJ2ZHuyW_TuGARXpiA==/109951168541199454.jpg?imageView&blur=40x20";
-            break;
+            result =
+                'http://p1.music.126.net/6_ZJVJ2ZHuyW_TuGARXpiA==/109951168541199454.jpg?imageView&blur=40x20'
+            break
         case 5:
-            result = "http://p1.music.126.net/h4ZVSYt_cMOr7O5QrWuUnw==/109951168540605107.jpg?imageView&blur=40x20";
-            break;
+            result =
+                'http://p1.music.126.net/h4ZVSYt_cMOr7O5QrWuUnw==/109951168540605107.jpg?imageView&blur=40x20'
+            break
         case 6:
-            result = "http://p1.music.126.net/jnn9GbOjIrAgayobtE7viQ==/109951168540908283.jpg?imageView&blur=40x20";
-            break;
+            result =
+                'http://p1.music.126.net/jnn9GbOjIrAgayobtE7viQ==/109951168540908283.jpg?imageView&blur=40x20'
+            break
         case 7:
-            result = "http://p1.music.126.net/jnn9GbOjIrAgayobtE7viQ==/109951168540908283.jpg?imageView&blur=40x20"
+            result =
+                'http://p1.music.126.net/jnn9GbOjIrAgayobtE7viQ==/109951168540908283.jpg?imageView&blur=40x20'
     }
     return result
 })
-
-
 </script>
 <template lang="">
-    <p>{{currentSlideIndex}}</p>
   <div class="home">
     <div class="wrap">
       <div class="container">
@@ -109,7 +114,13 @@ const dynamicMask = computed(() => {
     </div>
     <div class="mask" :style="{ 'background-image': 'url(' + dynamicMask + ')' }">
       <div class="home_carousel">
-        <Carousel :list="CarouselList" @response="index => currentSlideIndex = index"/>
+        <Carousel :list="CarouselList" @response="(index) => (currentSlideIndex = index)" />
+        <div class="home_carousel_download">
+            <a href="/download">下载客户端</a>
+            <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
+            <span class="shadow"></span>
+            <span class="shadow"></span>
+        </div>
       </div>
     </div>
 
@@ -161,23 +172,58 @@ const dynamicMask = computed(() => {
     &_carousel {
         width: 982px;
         height: 285px;
-        overflow: hidden;
         margin: 0 auto;
+        position: relative;
 
         .swiperbox {
-            width: 730px;
+            margin-left: -100px;
+            margin-right: -50px;
         }
 
         .swiper-button-prev {
             color: white;
         }
 
+        .swiper-button-next {
+            color: white;
+        }
+
         .swiper-slide {
             img {
+                margin-left: 80px;
                 display: block;
                 width: 730px;
                 background-size: 6000px;
-                // -webkit-backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+            }
+        }
+
+        &_download {
+            position: absolute;
+            top: 0;
+            right: 16px;
+            height: 100%;
+            width: 256px;
+            background: url(@/assets/Home/download.png) no-repeat 0 0;
+            z-index: 3;
+
+            a {
+                &:hover {
+                    background: url(@/assets/Home/download.png) no-repeat 0 -290px;
+                }
+
+                display: block;
+                width: 215px;
+                height: 56px;
+                margin: 186px 0 0 19px;
+                text-indent: -9999px;
+            }
+
+            p {
+                color: #8d8d8d;
+                margin: 10px auto;
+                text-align: center;
+
             }
         }
     }
