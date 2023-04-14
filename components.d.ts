@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Carousel: typeof import('./src/components/Carousel/Carousel.vue')['default']
     ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
